@@ -1,28 +1,39 @@
 from machine import Pin, time_pulse_us
 import time
 
-trig = Pin(42, Pin.OUT)
-echo = Pin(41, Pin.IN)
+trigIngang = Pin(42, Pin.OUT)
+echoIngang = Pin(41, Pin.IN)
 led = Pin(40, Pin.OUT)
 
+IngangTeller = 0
+aanwezig = False
+
 while True:
-    trig.off()
+    trigIngang.off()
     time.sleep_us(2)
 
-    trig.on()
+    trigIngang.on()
     time.sleep_us(10)
-    trig.off()
+    trigIngang.off()
 
-    duur = time_pulse_us(echo, 1, 30000)
+    duur = time_pulse_us(echoIngang, 1, 30000)
 
-    afstand = round(duur / 58)
-
-    if afstand < 20:
-        led.on()      # LED aan als afstand kleiner is dan 5 cm
-        print('Iemand is binnen,.')
+    if duur > 0:
+        afstand = round(duur / 58)
     else:
-        led.off()     # anders uit
+        afstand = 999
 
-    print(afstand)
+    if afstand < 50:
+        led.on()
+
+        if not aanwezig:
+            IngangTeller += 1
+            print("Iemand is binnen")
+            print("Totaal personen binnen:", IngangTeller)
+            aanwezig = True
+
+    else:
+        led.off()
+        aanwezig = False
 
     time.sleep(0.2)
