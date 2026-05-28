@@ -14,6 +14,7 @@ led_uit = Pin(38, Pin.OUT)
 # Tellers
 totaal_ingang = 100
 
+# Functie voor het berekenen van de afstand.
 def meet_afstand(trig, echo):
     trig.off()
     time.sleep_us(2)
