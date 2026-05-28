@@ -12,8 +12,7 @@ echo_uit = Pin(37, Pin.IN)
 led_uit = Pin(38, Pin.OUT)
 
 # Tellers
-totaal_ingang = 0
-totaal_uitgang = 0
+totaal_ingang = 100
 
 def meet_afstand(trig, echo):
     trig.off()
@@ -45,13 +44,13 @@ try:
         afstand_uit = meet_afstand(trig_uit, echo_uit)
 
         if afstand_uit < 20:
-            totaal_uitgang -= 1
-            print(f"Uitgang: {totaal_uitgang}")
+            totaal_ingang -= 1
+            print(f"Totaal nog in de wachtrij: {totaal_ingang}")
             led_uit.on()
         else:
             led_uit.off()
 
-        time.sleep(0.2)
+        time.sleep(0.3)
 
 # Als de code stopt dan gaat alles uit.
 finally:
