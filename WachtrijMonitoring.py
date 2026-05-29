@@ -9,7 +9,7 @@ led_in = Pin(40, Pin.OUT)
 # Uitgang pins -> sensor en led
 trig_uit = Pin(36, Pin.OUT)
 echo_uit = Pin(37, Pin.IN)
-led_uit = Pin(38, Pin.OUT)
+led_uit = Pin(39, Pin.OUT)
 
 # Tellers
 totaal_ingang = 100
