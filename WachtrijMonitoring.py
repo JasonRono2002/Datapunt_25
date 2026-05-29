@@ -4,12 +4,12 @@ import time
 # Ingang pins -> sensor en led
 trig_in = Pin(42, Pin.OUT)
 echo_in = Pin(41, Pin.IN)
-led_in = Pin(40, Pin.OUT)
+led_in = Pin(13, Pin.OUT)
 
 # Uitgang pins -> sensor en led
-trig_uit = Pin(36, Pin.OUT)
-echo_uit = Pin(37, Pin.IN)
-led_uit = Pin(39, Pin.OUT)
+trig_uit = Pin(40, Pin.OUT)
+echo_uit = Pin(39, Pin.IN)
+led_uit = Pin(11, Pin.OUT)
 
 # Tellers
 totaal_ingang = 100
