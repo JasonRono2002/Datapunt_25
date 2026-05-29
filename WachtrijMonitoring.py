@@ -11,7 +11,7 @@ trig_uit = Pin(40, Pin.OUT)
 echo_uit = Pin(39, Pin.IN)
 led_uit = Pin(11, Pin.OUT)
 
-# Tellers
+# Tellers als voorbeeld
 totaal_ingang = 100
 
 # Functie voor het berekenen van de afstand.
@@ -34,9 +34,9 @@ try:
         # Ingang afstand meten
         afstand_in = meet_afstand(trig_in, echo_in)
 
-        if afstand_in < 20:
+        if afstand_in < 40:
             totaal_ingang += 1
-            print(f"Ingang: {totaal_ingang}")
+            print(f"Ingang ingelopen: {totaal_ingang}e persoon")
             led_in.on()
         else:
             led_in.off()
@@ -44,14 +44,14 @@ try:
         # Uitgang afstand meten
         afstand_uit = meet_afstand(trig_uit, echo_uit)
 
-        if afstand_uit < 20:
+        if afstand_uit < 40:
             totaal_ingang -= 1
-            print(f"Totaal nog in de wachtrij: {totaal_ingang}")
+            print(f"Persoon is de uitgang uitgelopen \n Totaal nog in de wachtrij: {totaal_ingang}")
             led_uit.on()
         else:
             led_uit.off()
 
-        time.sleep(0.3)
+        time.sleep(1)
 
 # Als de code stopt dan gaat alles uit.
 finally:
