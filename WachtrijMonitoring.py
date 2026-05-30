@@ -12,7 +12,7 @@ echo_uit = Pin(39, Pin.IN)
 led_uit = Pin(11, Pin.OUT)
 
 # Tellers als voorbeeld
-totaal_ingang = 100
+totaal_ingang = 0
 
 # Functie voor het berekenen van de afstand.
 def meet_afstand(trig, echo):
@@ -50,6 +50,10 @@ try:
             led_uit.on()
         else:
             led_uit.off()
+        
+        if totaal_ingang <= 0:
+            totaal_ingang = 0
+
 
         time.sleep(1)
 
